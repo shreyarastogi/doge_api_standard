@@ -1,0 +1,61 @@
+
+<!DOCTYPE html><html lang="en-US"><meta charset="utf-8">
+<title>Doge Standard</title>
+<link href="https://resources.whatwg.org/standard.css" rel="stylesheet">
+<link href="https://s-media-cache-ak0.pinimg.com/736x/9e/82/03/9e8203bacc73b1591a2c31bec413332f.jpg" rel="icon">
+
+<h1 id="doge-api">Doge</h1>
+
+<dl>
+ <dt>Author:
+   <dd><a href="https://www.twitter.com/theJeenaLee">Jeena Lee</a></dd>
+ <dt>Related Publication:
+   <dd><a href="http://jeenalee.com/2016/10/03/implementing-doge-for-servo.html">How to implement a new DOM API for Servo</a></dd>
+</dl>
+
+<h2 class="no-num no-toc short" id="abstract">Abstract</h2>
+  <p>The Doge standard defines process related to doge-ing.
+
+<h2 id="doge-class">Doge class</h2>
+
+<pre class="idl">typedef sequence&lt;DOMString&gt; <dfn id="dogeinit">DogeInit</dfn>;</pre>
+
+
+<pre class="idl">[<a href="#dom-doge" title="dom-Doge">Constructor</a>(optional <a href="#dogeinit">DogeInit</a> <var>init</var>),
+ Exposed=(Window,Worker)]
+interface <dfn data-dfn-type="interface" data-export="" id="doge">Doge</dfn> {
+  void <a href="#dom-doge-append" title="dom-Doge-append">append</a>(DOMString <var>word</var>);
+  DOMString <a href="#dom-doge-random" title="dom-Doge-random">random</a>();
+};
+</pre>
+
+<p>A <a href="#doge"><code>Doge</code></a> object has an associated
+<dfn data-dfn-for="Doge" data-export="" id="concept-headers-header-list" title="concept-Headers-header-list">such list</dfn>.
+
+<p>The
+<dfn data-dfn-for="Doge" data-dfn-type="constructor" data-export="" id="dom-doge" title="dom-Doge"><code>Doge(<var>init</var>)</code></dfn>
+constructor, when invoked, must run these steps:
+
+<ol>
+ <li><p>Let <var>doge</var> be a new <a href="#doge"><code>Doge</code></a> object.
+
+ <li><p>If <var>init</var> is given, for each <var>word</var> in <var>init</var>, append <var>word</var> to the associated <var>such list</var>.
+
+ <li><p>Return <var>doge</var>.
+</ol>
+
+
+<p>The
+<dfn data-dfn-for="Doge" data-dfn-type="method" data-export="" id="dom-doge-append" title="dom-Doge-append"><code>append(<var>word</var>)</code></dfn>
+method, when invoked, must append <var>word</var> to the associated <var>such list</var>.
+
+<p>The <dfn data-dfn-for="Doge" data-dfn-type="method" data-export="" id="dom-doge-random" title="dom-Doge-random"><code>random()</code></dfn> method, when
+invoked, must run these steps:
+
+<ol>
+<li><p>Let <var>list</var> be the associated <var>such list</var>.
+
+<li><p>If <var>list</var> is empty, throw a <code title="">TypeError</code>.
+
+<li><p>Return a randomly chosen word from <var>list</var>.
+</ol>
